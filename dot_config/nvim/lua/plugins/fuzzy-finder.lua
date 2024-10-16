@@ -48,7 +48,6 @@ return {
           desc = "config",
         },
         { "<leader>w", proxy = "<c-w>", group = "windows" },
-        -- { "<leader>sc", require("telescope").extensions.chezmoi.find_files, desc = "chezmoi" },
       }
     end,
     config = function(opts)
@@ -108,7 +107,6 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require("telescope").load_extension, "fzf")
       pcall(require("telescope").load_extension, "ui-select")
-      pcall(require("telescope").load_extension, "chezmoi")
     end,
   },
 }
