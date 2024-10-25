@@ -286,4 +286,37 @@ return {
       bg_padding = 0,
     },
   },
+  {
+    "echasnovski/mini.nvim",
+    lazy = true,
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "alpha",
+          "dashboard",
+          "fzf",
+          "help",
+          "lazy",
+          "lazyterm",
+          "mason",
+          "neo-tree",
+          "notify",
+          "toggleterm",
+          "Trouble",
+          "trouble",
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function()
+      require("mini.icons").setup()
+      require("mini.ai").setup()
+      require("mini.surround").setup()
+      require("mini.indentscope").setup({
+        symbol = "│",
+      })
+    end,
+  },
 }

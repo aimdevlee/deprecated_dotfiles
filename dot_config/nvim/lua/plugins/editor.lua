@@ -1,56 +1,8 @@
 return {
   {
-    "echasnovski/mini.ai",
-    version = "*",
-    config = function()
-      require("mini.ai").setup()
-    end,
-  },
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {},
-  },
-  {
-    "echasnovski/mini.surround",
-    version = "*",
-    config = function()
-      require("mini.surround").setup()
-    end,
-  },
-  {
-    "echasnovski/mini.indentscope",
-    version = "*",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "lazyterm",
-          "mason",
-          "neo-tree",
-          "notify",
-          "toggleterm",
-          "Trouble",
-          "trouble",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-    config = function()
-      local opts = {
-        border = "",
-        symbol = "│",
-        options = { try_as_border = true },
-      }
-      require("mini.indentscope").setup(opts)
-    end,
   },
   {
     "monaqa/dial.nvim",
