@@ -101,7 +101,6 @@ return {
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
-        ["local"] = false,
       },
     },
     build = "make",
