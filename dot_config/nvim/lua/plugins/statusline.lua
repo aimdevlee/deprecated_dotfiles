@@ -35,47 +35,32 @@ return {
             { "aerial" },
           },
           lualine_x = {
-            -- stylua: ignore
+            -- stylua: ignore start
             {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
               color = function() return Util.fg("Statement") end,
             },
-            -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = function() return Util.fg("Constant") end,
+              color = function() return Util.fg("Constants") end,
             },
-            -- stylua: ignore
             {
-              function() return "  " .. require("dap").status() end,
-              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = function() return Util.fg("Debug") end,
-            },
-            -- stylua: ignore
-            {
-              require("lazy.status").updates,
-              cond = require("lazy.status").has_updates,
+              function() return require("noice").api.status.search.get() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.search.has() end,
               color = function() return Util.fg("Special") end,
             },
             {
               "diff",
-              symbols = {
-                added = icons.git.added,
-                modified = icons.git.modified,
-                removed = icons.git.removed,
-              },
+              symbols = { added = icons.git.added, modified = icons.git.modified, removed = icons.git.removed },
               source = function()
                 local gitsigns = vim.b.gitsigns_status_dict
                 if gitsigns then
-                  return {
-                    added = gitsigns.added,
-                    modified = gitsigns.changed,
-                    removed = gitsigns.removed,
-                  }
+                  return { added = gitsigns.added, modified = gitsigns.changed, removed = gitsigns.removed }
                 end
               end,
+              -- stylua: ignore end
             },
           },
           lualine_y = {
