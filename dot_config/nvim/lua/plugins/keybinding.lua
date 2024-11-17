@@ -39,6 +39,7 @@ return {
           { "<leader>g", group = "git" },
           { "<leader>gh", group = "hunks" },
           { "<leader>t", group = "toggle" },
+          { "<leader>n", group = "notification" },
           { "<leader>q", group = "quit/session" },
           { "<leader>u", group = "ui" },
           { "<leader>x", group = "diagnostics/quickfix" },
